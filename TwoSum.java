@@ -3,30 +3,20 @@ import java.util.Map;
 
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        // Создаем хэш-таблицу для хранения чисел и их индексов
         Map<Integer, Integer> map = new HashMap<>();
 
-        // Проходимся по массиву
-        for (int i = 0; i < nums.length; i++) {
-            // Вычисляем значение, которое нужно найти
+        for (int i = 0; i < nums.length; i++) {           
             int complement = target - nums[i];
 
-            // Проверяем, есть ли "дополнение" в хэш-таблице
             if (map.containsKey(complement)) {
-                // Если найдено, возвращаем индексы текущего числа и дополнения
-                return new int[] { map.get(complement), i };
+                      return new int[] { map.get(complement), i };
             }
-
-            // Если нет, добавляем текущее число и его индекс в хэш-таблицу
             map.put(nums[i], i);
         }
-
-        // Если не найдено, выбрасываем исключение (но по условию задачи всегда есть решение)
         throw new IllegalArgumentException("Нет решения");
     }
 
     public static void main(String[] args) {
-        // Пример использования
         TwoSum solution = new TwoSum();
 
         int[] nums1 = {2, 7, 11, 15};
